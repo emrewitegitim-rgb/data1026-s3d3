@@ -1,0 +1,30 @@
+version: 2
+
+sources:
+  - name: raw
+    schema: raw_gz_data
+    description: raw dataset that contains raw tables for greenweez
+    tables:
+      - name: sales
+        identifier: raw_sales
+        description: sales data for greenweez
+        columns:
+          - name: orders_id
+            description: primary key for the order
+            tests:
+              - not_null
+        tests:
+          - unique:
+              column_name: "orders_id || '-' || pdt_id"       
+      - name: products
+        identifier: raw_product
+        description: product dimension for greenweez
+        columns:
+          - name: products_id
+            description: primary key for the product data
+            tests:
+              - unique
+              - not_null
+              
+              
+              
