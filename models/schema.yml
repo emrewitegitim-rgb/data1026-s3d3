@@ -13,6 +13,11 @@ sources:
             description: primary key for the order
             tests:
               - not_null
+          - name: pdt_id
+            description: id of the product in a given order
+            tests:
+              - not_null
+              
         tests:
           - unique:
               column_name: "orders_id || '-' || pdt_id"       
